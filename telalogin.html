@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | inbar</title>
+
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background:
+linear-gradient(
+rgba(30, 0, 55, 0.32),
+rgba(0, 0, 0, 0.58)
+),
+linear-gradient(
+90deg,
+rgba(105, 0, 255, 0.42),
+rgba(20, 0, 35, 0.08) 50%,
+rgba(105, 0, 255, 0.42)
+),
+url("https://images.unsplash.com/photo-1514933651103-005eec06c04b")
+center / cover no-repeat;
+background-color: #100018;
+color: white;
+padding: 20px;
+}
+
+.container {
+width: 100%;
+max-width: 360px;
+text-align: center;
+}
+
+.logo {
+margin-bottom: 25px;
+}
+
+.icone-logo {
+width: 76px;
+height: 76px;
+border: 6px solid #a000ff;
+border-radius: 50% 50% 50% 10%;
+transform: rotate(-45deg);
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto 12px;
+box-shadow: 0 0 20px #a000ff;
+}
+
+.icone-logo span {
+font-size: 32px;
+transform: rotate(45deg);
+}
+
+.logo h1 {
+font-size: 42px;
+letter-spacing: -2px;
+}
+
+.logo h1 span {
+color: #a000ff;
+}
+
+.login-box {
+background: rgba(12, 5, 25, 0.88);
+border: 1px solid rgba(190, 100, 255, 0.25);
+border-radius: 15px;
+padding: 25px 28px;
+box-shadow: 0 0 30px rgba(120, 0, 255, 0.15);
+backdrop-filter: blur(10px);
+}
+
+.login-box h2 {
+font-size: 24px;
+margin-bottom: 7px;
+}
+
+.subtitulo {
+color: #bdb4c9;
+font-size: 13px;
+margin-bottom: 22px;
+}
+
+.campo {
+display: flex;
+align-items: center;
+gap: 12px;
+background: rgba(15, 10, 30, 0.8);
+border: 1px solid #393044;
+border-radius: 8px;
+padding: 0 13px;
+margin-bottom: 12px;
+transition: border 0.3s;
+}
+
+.campo[hidden] {
+display: none;
+}
+
+.termos[hidden] {
+display: none;
+}
+
+.termos {
+display: flex;
+align-items: flex-start;
+gap: 9px;
+margin: 4px 0 14px;
+color: #bdb4c9;
+font-size: 12px;
+line-height: 1.5;
+text-align: left;
+}
+
+.termos input {
+margin-top: 2px;
+accent-color: #a000ff;
+}
+
+.campo:focus-within {
+border-color: #a000ff;
+box-shadow: 0 0 8px rgba(160, 0, 255, 0.25);
+}
+
+.campo .icone {
+color: #b9a9ce;
+font-size: 19px;
+}
+
+.campo input {
+width: 100%;
+height: 42px;
+background: transparent;
+border: none;
+outline: none;
+color: white;
+font-size: 14px;
+}
+
+.campo input::placeholder {
+color: #82788f;
+}
+
+.botao {
+width: 100%;
+padding: 13px;
+margin-top: 5px;
+border: none;
+border-radius: 8px;
+background: linear-gradient(90deg, #6500ff, #b000ff);
+color: white;
+font-weight: bold;
+font-size: 14px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.botao:hover {
+transform: translateY(-2px);
+box-shadow: 0 0 18px rgba(160, 0, 255, 0.6);
+}
+
+.mensagem {
+font-size: 13px;
+margin-top: 15px;
+line-height: 1.5;
+color: #ffb5d5;
+}
+
+.cadastro {
+margin-top: 20px;
+font-size: 13px;
+color: #aaa0b7;
+}
+
+.cadastro a {
+color:#520075 ;
+font-weight: bold;
+text-decoration: underline;
+cursor: pointer;
+}
+
+.cadastro a:hover {
+color: #dfb4ff;
+}
+
+.senha-opcoes {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin: 3px 0 12px;
+font-size: 12px;
+}
+
+.senha-opcoes button,
+.senha-opcoes a {
+color: #b65cff;
+background: none;
+border: none;
+cursor: pointer;
+}
+
+.senha-opcoes a[hidden] {
+display: none;
+}
+
+@media (max-width: 400px) {
+.login-box {
+padding: 23px 18px;
+}
+
+.logo h1 {
+font-size: 36px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+<header class="logo">
+<div class="icone-logo">
+<span>🍸</span>
+</div>
+
+<h1>in<span>bar</span></h1>
+</header>
+
+<section class="login-box">
+
+<h2 id="titulo">Bem-vindo!</h2>
+
+<p class="subtitulo" id="subtitulo">
+Faça login para continuar.
+</p>
+
+<form id="formulario">
+
+<div class="campo" id="campoUsuario" hidden>
+<span class="icone">👤</span>
+<input
+type="text"
+id="usuario"
+placeholder="Usuário"
+autocomplete="username"
+minlength="3"
+>
+</div>
+
+<div class="campo" id="campoTelefone" hidden>
+<span class="icone">☎</span>
+<input
+type="tel"
+id="telefone"
+placeholder="Telefone"
+autocomplete="tel"
+inputmode="tel"
+>
+</div>
+
+<div class="campo">
+<span class="icone">✉</span>
+<input
+type="email"
+id="email"
+placeholder="E-mail"
+autocomplete="email"
+required
+>
+</div>
+
+<div class="campo">
+<span class="icone">🔒</span>
+<input
+type="password"
+id="senha"
+placeholder="Senha"
+autocomplete="current-password"
+minlength="6"
+required
+>
+</div>
+
+<div class="campo" id="campoConfirmacao" hidden>
+<span class="icone">🔒</span>
+<input
+type="password"
+id="confirmacaoSenha"
+placeholder="Confirmação de senha"
+autocomplete="new-password"
+minlength="6"
+>
+</div>
+
+<label class="termos" id="campoTermos" hidden>
+<input type="checkbox" id="aceitarTermos">
+<span>Li e aceito os termos de uso e a política de privacidade.</span>
+</label>
+
+<div class="senha-opcoes" id="opcoesSenha">
+<a href="#" id="recuperarAcesso">Esqueci o e-mail ou senha</a>
+<button type="button" id="mostrarSenha">
+Mostrar senha
+</button>
+</div>
+
+<button type="submit" class="botao" id="botao">
+ENTRAR
+</button>
+
+<p class="mensagem" id="mensagem"
+role="status" aria-live="polite"></p>
+
+</form>
+
+<p class="cadastro">
+<span id="textoCadastro">Não possui uma conta?</span>
+<a href="#" id="alternar">Cadastre-se</a>
+</p>
+
+</section>
+
+</main>
+
+<script>
+const formulario = document.getElementById("formulario");
+const titulo = document.getElementById("titulo");
+const subtitulo = document.getElementById("subtitulo");
+const botao = document.getElementById("botao");
+const alternar = document.getElementById("alternar");
+const textoCadastro = document.getElementById("textoCadastro");
+const mensagem = document.getElementById("mensagem");
+const senha = document.getElementById("senha");
+const campoUsuario = document.getElementById("campoUsuario");
+const usuario = document.getElementById("usuario");
+const campoTelefone = document.getElementById("campoTelefone");
+const telefone = document.getElementById("telefone");
+const campoConfirmacao = document.getElementById("campoConfirmacao");
+const confirmacaoSenha = document.getElementById("confirmacaoSenha");
+const campoTermos = document.getElementById("campoTermos");
+const aceitarTermos = document.getElementById("aceitarTermos");
+const recuperarAcesso = document.getElementById("recuperarAcesso");
+
+let modoCadastro = false;
+
+// Alterna entre login e cadastro
+alternar.addEventListener("click", function(evento) {
+evento.preventDefault();
+
+modoCadastro = !modoCadastro;
+formulario.reset();
+mensagem.textContent = "";
+senha.type = "password";
+recuperarAcesso.hidden = modoCadastro;
+
+if (modoCadastro) {
+titulo.textContent = "Crie sua conta!";
+subtitulo.textContent = "Preencha os dados para se cadastrar.";
+botao.textContent = "CADASTRAR";
+textoCadastro.textContent = "Já possui uma conta?";
+alternar.textContent = "Entrar";
+senha.autocomplete = "new-password";
+campoUsuario.hidden = false;
+usuario.required = true;
+campoTelefone.hidden = false;
+telefone.required = true;
+campoConfirmacao.hidden = false;
+confirmacaoSenha.required = true;
+campoTermos.hidden = false;
+aceitarTermos.required = true;
+} else {
+titulo.textContent = "Bem-vindo!";
+subtitulo.textContent = "Faça login para continuar.";
+botao.textContent = "ENTRAR";
+textoCadastro.textContent = "Não possui uma conta?";
+alternar.textContent = "Cadastre-se";
+senha.autocomplete = "current-password";
+campoUsuario.hidden = true;
+usuario.required = false;
+campoTelefone.hidden = true;
+telefone.required = false;
+campoConfirmacao.hidden = true;
+confirmacaoSenha.required = false;
+campoTermos.hidden = true;
+aceitarTermos.required = false;
+}
+});
+
+recuperarAcesso.addEventListener("click", function(evento) {
+evento.preventDefault();
+mensagem.style.color = "#ffb5d5";
+mensagem.textContent =
+"A recuperação do e-mail ou da senha estará disponível quando o sistema estiver conectado a um servidor.";
+});
+
+// Mostrar ou esconder a senha
+document.getElementById("mostrarSenha")
+.addEventListener("click", function() {
+if (senha.type === "password") {
+senha.type = "text";
+this.textContent = "Esconder senha";
+} else {
+senha.type = "password";
+this.textContent = "Mostrar senha";
+}
+});
+
+// Validação do formulário
+formulario.addEventListener("submit", function(evento) {
+evento.preventDefault();
+
+mensagem.style.color = "#ffb5d5";
+
+if (!formulario.checkValidity()) {
+formulario.reportValidity();
+return;
+}
+
+if (modoCadastro) {
+if (senha.value !== confirmacaoSenha.value) {
+mensagem.textContent = "As senhas não coincidem.";
+confirmacaoSenha.focus();
+return;
+}
+
+mensagem.textContent =
+"Cadastro demonstrativo. É necessário conectar um servidor para criar sua conta.";
+} else {
+mensagem.textContent =
+"Login demonstrativo. É necessário conectar um servidor para autenticar sua conta.";
+}
+});
+</script>
+
+</body>
+</html>
